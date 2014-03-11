@@ -3,7 +3,7 @@
   "description": "OAA JSON backend",
   "version": "0.0.1",
   "dependencies": {
-    
+
   },
   "devDependencies": {
     "grunt-simple-mocha": "^0.4.0",
@@ -11,6 +11,9 @@
     "grunt-contrib-watch": "^0.5.3",
     "grunt-contrib-jshint": "^0.8.0",
     "chai": "^1.9.0",
+    "express": "*",
+    "mongodb": "*",
+    "mongoose": "*",
     "superagent": "*"
   }
 }
