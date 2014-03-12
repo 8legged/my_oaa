@@ -27,7 +27,7 @@ module.exports = function(grunt) {
     clean: {
       build: ['build'],
       dev: {
-        src: ['build/app.js', 'build/<%= pkg.name %>.css', 'build/<%= pkg.name %>.js']
+        src: ['build/server.js', 'build/<%= pkg.name %>.css', 'build/<%= pkg.name %>.js']
       },
       prod: ['dist']
     },
@@ -51,11 +51,11 @@ module.exports = function(grunt) {
     },
     watch: {
       all:{
-        files:['app.js', 'models/*.js'],
+        files:['server.js', 'models/*.js'],
         tasks:['jshint', 'test']
       },
       express: {
-        files: ['app.js', 'models/**/*.js', 'routes/**/*.js'],
+        files: ['server.js', 'models/**/*.js', 'routes/**/*.js'],
         tasks: ['express:dev'],
         options: {
           // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions.
@@ -79,7 +79,7 @@ module.exports = function(grunt) {
     browserify: {
       prod: {
         src: ['assets/js/*.js'],
-        dest: 'dist/app.js',
+        dest: 'dist/browser.js',
         options: {
           transform: ['debowerify'],
           debug: false
@@ -87,7 +87,7 @@ module.exports = function(grunt) {
       },
       dev: {
         src: ['assets/js/*.js'],
-        dest: 'build/app.js',
+        dest: 'build/browser.js',
         options: {
           transform: ['debowerify'],
           debug: true
@@ -100,18 +100,18 @@ module.exports = function(grunt) {
       },
       dev: {
         options: {
-          script: 'app.js'
+          script: 'server.js'
         }
       },
       prod: {
         options: {
-          script: 'app.js',
+          script: 'server.js',
           node_env: 'production'
         }
       },
       test: {
         options: {
-          script: 'app.js'
+          script: 'server.js'
         }
       }
     },
@@ -126,7 +126,7 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      all: ['Gruntfile.js', 'app.js', 'models/**/*.js', 'test/**/*.js'],
+      all: ['Gruntfile.js', 'server.js', 'models/**/*.js', 'test/**/*.js'],
       options: {
         jshintrc: true,
         globals: {

@@ -17,7 +17,7 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-var users = require('./routes/users');
+var users = require('./api/routes/user_routes');
 
 app.get('/api/v1/users/', users.collection);
 

@@ -14,3 +14,6 @@ var User = Backbone.Model.extend({
 
 var user = new User({first_name: 'Steve', last_name: 'McQueen'});
 user.save();
+
+user.set('first_name', 'Greg');
+user.save();
