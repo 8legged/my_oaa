@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 // jshint unused:false
 
 var express = require('express');
@@ -8,12 +8,13 @@ var path = require('path');
 var app = express();
 
 app.configure(function(){
-    app.use(express.bodyParser());
-    app.use(app.router);
+  app.use(express.bodyParser());
+  app.use(express.static(path.join(__dirname, 'build')));
+  app.use(app.router);
 });
 
 app.configure('development', function(){
-    app.use(express.errorHandler());
+  app.use(express.errorHandler());
 });
 
 var users = require('./routes/users');
@@ -30,8 +31,5 @@ app.delete('/api/v1/users/:id', users.deleteUser);
 
 var server = http.createServer(app);
 server.listen(3000, function(){
-    console.log('server running');
+  console.log('server running');
 });
-
-
-

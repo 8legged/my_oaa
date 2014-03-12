@@ -1,22 +1,22 @@
-'use strict';
-// jshint unused:false
+// 'use strict';
+// // jshint unused:false
 
-var superagent = require('superagent');
-var chai = require('chai'),
-expect = chai.expect,
-should = chai.should();
-var app = require('../app').app;
+// var superagent = require('superagent');
+// var chai = require('chai'),
+// expect = chai.expect,
+// should = chai.should();
+// var app = require('../app').app;
 
-describe('Meetings JSON api', function(){
-    var id;
+// describe('Meetings JSON api', function(){
+//     var id;
 
-    it('get a collection', function(done){
-        superagent.get('http://localhost:3000/api/v1/meetings').end(function(er,res) {
-            expect(er).to.be.eql(null);
+//     it('get a collection', function(done){
+//         superagent.get('http://localhost:3000/api/v1/meetings').end(function(er,res) {
+//             expect(er).to.be.eql(null);
 
-            done();
-        });
-    });
+//             done();
+//         });
+//     });
 
     // it('should be able to create a user', function(done){
     //     superagent.post('http://localhost:3000/api/v1/users')
@@ -59,6 +59,6 @@ describe('Meetings JSON api', function(){
     //         done();
     //     });
     // });
-});;
+// });;
 
 

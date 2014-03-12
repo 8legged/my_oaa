@@ -3,17 +3,25 @@
   "description": "OAA JSON backend",
   "version": "0.0.1",
   "dependencies": {
-
+    "express": "*",
+    "mongodb": "*",
+    "mongoose": "*"
   },
   "devDependencies": {
     "grunt-simple-mocha": "^0.4.0",
     "grunt": "^0.4.3",
     "grunt-contrib-watch": "^0.5.3",
     "grunt-contrib-jshint": "^0.8.0",
+    "supertest": "^0.9.0",
     "chai": "^1.9.0",
-    "express": "*",
-    "mongodb": "*",
-    "mongoose": "*",
-    "superagent": "*"
+    "superagent": "*",
+    "grunt-casper": "^0.3.3",
+    "grunt-express-server": "^0.4.13",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-clean": "^0.5.0",
+    "browserify": "^3.32.1",
+    "grunt-browserify": "^1.3.1",
+    "debowerify": "^0.7.0",
+    "grunt-sass": "^0.11.0"
   }
 }
