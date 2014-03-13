@@ -10,6 +10,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-mongoimport');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -135,6 +136,36 @@ module.exports = function(grunt) {
         }
       }
     },
+    mongoimport: {
+      options: {
+        db: 'oaa-development',
+        //optional
+        //host : 'localhost',
+        //port: '27017',
+        //username : 'username',
+        //password : 'password',
+        //stopOnError : false,
+        collections: [
+          {
+            name: 'users',
+            type: 'json',
+            file: 'db/seeds/users.json',
+            jsonArray: true, //optional
+            upsert: true, //optional
+            drop: true //optional
+
+          },
+          {
+            name: 'meetings',
+            type: 'json',
+            file: 'db/seeds/meetings.json',
+            jsonArray: true,
+            upsert: true,
+            drop: true
+          }
+        ]
+      }
+    }
   });
 
   grunt.registerTask('build:dev', ['clean:dev', 'browserify:dev', 'sass:dev', 'jshint:all', 'copy:dev']);
