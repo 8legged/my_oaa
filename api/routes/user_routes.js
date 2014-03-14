@@ -44,6 +44,8 @@ exports.updateUser = function(req, res) {
   res.setHeader('Content-Type', 'application/json');
   var id = req.params.id;
   var user = req.body;
+// Delete id from Backbone's request before sending to Mongoose
+  delete req.body._id;
   User.update({'_id': String(id)}, user, function(err) {
     if(err) {
       res.send({'error': err});

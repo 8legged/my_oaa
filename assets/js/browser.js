@@ -7,13 +7,9 @@ var _         = require('underscore');
 var Backbone  = require('backbone');
 Backbone.$    = $;
 
-var User = Backbone.Model.extend({
-  idAttribute: '_id',
-  urlRoot: 'http://localhost:3000/api/v1/users'
+var UserRoutes = require('./routers/UserRouter');
+
+$(function() {
+  var userRoutes = new UserRoutes();
+  $(function() {userRoutes.start();});
 });
-
-var user = new User({first_name: 'Steve', last_name: 'McQueen'});
-user.save();
-
-user.set('first_name', 'Greg');
-user.save();

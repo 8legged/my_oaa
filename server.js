@@ -1,6 +1,6 @@
 'use strict';
 // jshint unused:false
-
+// require('newrelic');
 var express = require('express');
 var http = require('http');
 var path = require('path');
@@ -28,6 +28,12 @@ app.get('/api/v1/users/:id', users.findById);
 app.put('/api/v1/users/:id', users.updateUser);
 
 app.delete('/api/v1/users/:id', users.deleteUser);
+// Redirect
+app.get('/users*', function(req, res) {
+  res.redirect('/#users' + req.params);
+});
+// Possible workaround for the above from Ivan...
+// var backboneRouteNames = ['users', 'agendaItems', 'actionItems'];
 
 var server = http.createServer(app);
 server.listen(3000, function(){
