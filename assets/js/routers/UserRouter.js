@@ -10,14 +10,14 @@ var UserCollectionView = require('../views/UserCollectionView');
 
 module.exports = Backbone.Router.extend({
   routes: {'users/:id': 'show',
-'users': 'index'},
+           'users': 'index'},
 
   show: function(id) {
 
   },
 
   start: function() {
-    Backbone.history.start({pushState: true});
+    Backbone.history.start({pushState: false});
   },
 
   index: function() {

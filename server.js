@@ -28,12 +28,10 @@ app.get('/api/v1/users/:id', users.findById);
 app.put('/api/v1/users/:id', users.updateUser);
 
 app.delete('/api/v1/users/:id', users.deleteUser);
-// Redirect
-app.get('/users*', function(req, res) {
-  res.redirect('/#users' + req.params);
-});
-// Possible workaround for the above from Ivan...
-// var backboneRouteNames = ['users', 'agendaItems', 'actionItems'];
+// Redirect - uncomment to use pushState:true in UserRouter.js
+// app.get('/users*', function(req, res) {
+//   res.redirect('/#users' + req.params);
+// });
 
 var server = http.createServer(app);
 server.listen(3000, function(){
