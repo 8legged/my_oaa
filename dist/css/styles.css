@@ -1,0 +1,1517 @@
+/*-----------------------------
+Base style sheet
+------------------------------*/
+/*-----------------------------
+$Imports
+------------------------------*/
+/*-----------------------------
+Reset styles
+------------------------------*/
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@-o-viewport {
+  width: device-width;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+
+@viewport {
+  width: device-width;
+}
+
+html {
+  overflow-y: auto;
+}
+
+audio,
+video,
+canvas {
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+/* normalize.css v2.1.1 | MIT License | git.io/normalize */
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined in IE 8/9.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 8/9.
+ */
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+[hidden] {
+  display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+/**
+ * 1. Prevent system color scheme's background color being used in Firefox, IE,
+ *    and Opera.
+ * 2. Prevent system color scheme's text color being used in Firefox, IE, and
+ *    Opera.
+ * 3. Set default font family to sans-serif.
+ * 4. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  background: #fff;
+  /* 1 */
+  color: #000;
+  /* 2 */
+  font-family: sans-serif;
+  /* 3 */
+  -ms-text-size-adjust: 100%;
+  /* 4 */
+  -webkit-text-size-adjust: 100%;
+  /* 4 */
+}
+
+/**
+ * Remove default margin.
+ */
+body {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+a:focus {
+  outline: thin dotted;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Correct font family set oddly in Safari 5 and Chrome.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+pre {
+  white-space: pre-wrap;
+}
+
+/**
+ * Set consistent quote types.
+ */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9.
+ */
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari 5.
+ */
+figure {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+button,
+input {
+  line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to `content-box` in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*-----------------------------
+Layout styles
+------------------------------*/
+/*-----------------------------
+Variables
+------------------------------*/
+/*-----------------------------
+Mixins
+------------------------------*/
+/*-----------------------------
+$Grid
+------------------------------*/
+.container {
+  max-width: 60em;
+  position: relative;
+  margin: 0 auto 2.75em;
+  padding: 0.75em 0 2.5em 0;
+  background-color: #ffffff;
+  border-right: 1px solid #ccc9c4;
+  border-bottom: 1px solid #ccc9c4;
+  border-left: 1px solid #ccc9c4;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.grid {
+  padding: 0 2.5%;
+}
+
+[class*="col_"] {
+  display: block;
+  margin: 1.5%;
+}
+
+@media screen and (min-width: 10em) {
+  .container {
+    width: 100%;
+  }
+
+  .col_1, .col_2, .col_3, .col_4 {
+    width: 98%;
+  }
+
+  .heroBanner_col_2, .heroBanner_col_2_reverse {
+    width: 98%;
+  }
+
+  .heroBanner.col_4 {
+    width: 100%;
+    padding: 1.75% 2%;
+    margin: 1em 0 1.5em;
+  }
+}
+@media screen and (min-width: 52em) {
+  .container {
+    width: 92%;
+  }
+
+  [class*="col_"] {
+    float: left;
+  }
+
+  .col_1 {
+    width: 22%;
+  }
+
+  .col_2 {
+    width: 47%;
+  }
+
+  .col_3 {
+    width: 72%;
+  }
+
+  .col_4 {
+    width: 97%;
+  }
+}
+@media screen and (min-width: 70em) {
+  .heroBanner_col_2 {
+    width: 46%;
+  }
+
+  .heroBanner_col_2_reverse {
+    width: 46%;
+    float: right;
+  }
+}
+@media screen and (min-width: 40em) {
+  .dashboardContainer .col_1 {
+    width: 47%;
+    float: left;
+  }
+}
+@media screen and (min-width: 75em) {
+  .dashboardContainer .col_1 {
+    width: 22%;
+    float: left;
+  }
+}
+.cf:before, .cf:after {
+  content: "";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  zoom: 1;
+}
+
+/* For IE 6/7 (trigger hasLayout) */
+/*-----------------------------
+Typography styles
+------------------------------*/
+/*-----------------------------
+Variables
+------------------------------*/
+/*-----------------------------
+Mixins
+------------------------------*/
+html {
+  font-family: 'Source Sans Pro', 'verdana', sans-serif;
+  font-size: 100%;
+  font-weight: 300;
+  color: #232323;
+  line-height: 1.4;
+}
+@media screen and (max-width: 29.4375em) {
+  html {
+    font-size: 95%;
+  }
+}
+
+/*-----------------------------
+$Links
+------------------------------*/
+a {
+  color: #3d6298;
+  text-decoration: underline;
+}
+
+a:focus,
+a:hover {
+  color: #f6a62a;
+}
+
+/*-----------------------------
+$Headers
+------------------------------*/
+h1, h2, h3, h4 {
+  font-weight: 300;
+  color: #3d6298;
+  margin: 0 0 0.25em;
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3.375em;
+}
+@media screen and (min-width: 40em) {
+  h1 {
+    font-size: 5.063em;
+  }
+}
+
+h2 {
+  font-size: 3.375em;
+}
+
+h3 {
+  font-size: 2.25em;
+}
+
+h4 {
+  font-size: 1.5em;
+}
+
+.heroTitle, .heroForm {
+  text-align: center;
+  color: #fff;
+}
+
+.heroForm {
+  font-size: 1.25em;
+}
+
+.heroDescription {
+  margin: 0.15em 0 1.25em 0;
+  color: #fff;
+}
+
+.largeHeader {
+  text-align: center;
+  margin: 0;
+}
+
+.appFeature_header {
+  text-align: center;
+}
+
+/*-----------------------------
+General styles
+------------------------------*/
+/*-----------------------------
+Variables
+------------------------------*/
+/*-----------------------------
+Mixins
+------------------------------*/
+html {
+  background: #f0ebe2;
+}
+
+body {
+  position: relative;
+}
+
+.button {
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  padding: 0.5em 1.25em;
+  border-radius: 0.4em;
+  color: #232323;
+  cursor: pointer;
+  zoom: 1;
+  *display: inline;
+  border: 1px solid #b4791b;
+  background-color: #f6a62a;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f6a62a), to(#de9523));
+  background-image: -moz-linear-gradient(#f6a62a, #de9523);
+  background-image: -ms-linear-gradient(#f6a62a, #de9523);
+  background-image: -o-linear-gradient(#f6a62a, #de9523);
+  background-image: linear-gradient(#f6a62a, #de9523);
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+.button:focus,
+.button:hover {
+  background-color: #de9523;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f6a62a));
+  background-image: -moz-linear-gradient(#f6a62a);
+  background-image: -ms-linear-gradient(#f6a62a);
+  background-image: -o-linear-gradient(#f6a62a);
+  background-image: linear-gradient(#f6a62a);
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+
+.secondaryButton {
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  padding: 0.5em 1.25em;
+  border-radius: 0.4em;
+  color: #fff;
+  cursor: pointer;
+  zoom: 1;
+  *display: inline;
+  border: 1px solid #232323;
+  background-color: #3d6298;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3d6298), to(#2b477a));
+  background-image: -moz-linear-gradient(#3d6298, #2b477a);
+  background-image: -ms-linear-gradient(#3d6298, #2b477a);
+  background-image: -o-linear-gradient(#3d6298, #2b477a);
+  background-image: linear-gradient(#3d6298, #2b477a);
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+.secondaryButton:focus,
+.secondaryButton:hover {
+  background-color: #3d6298;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3d6298), to(#3d6298));
+  background-image: -moz-linear-gradient(#3d6298);
+  background-image: -ms-linear-gradient(#3d6298);
+  background-image: -o-linear-gradient(#3d6298);
+  background-image: linear-gradient(#3d6298);
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+
+.buttonSignup {
+  width: 70%;
+  margin-bottom: 1.25em;
+}
+@media screen and (min-width: 44em) {
+  .buttonSignup {
+    width: auto;
+    margin-left: 2em;
+    margin-bottom: 0;
+  }
+}
+
+.uploadButton {
+  margin: 0.5em 0;
+}
+
+.createAccount {
+  float: left;
+  clear: both;
+}
+
+input[type=submit] {
+  display: inline-block;
+  padding: 0.17em 1.25em;
+  border-radius: 0.4em;
+  color: #232323;
+  font-weight: 300;
+  cursor: pointer;
+  border: 1px solid #b4791b;
+  background-color: #f6a62a;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f6a62a), to(#de9523));
+  background-image: -moz-linear-gradient(#f6a62a, #de9523);
+  background-image: -ms-linear-gradient(#f6a62a, #de9523);
+  background-image: -o-linear-gradient(#f6a62a, #de9523);
+  background-image: linear-gradient(#f6a62a, #de9523);
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+input[type=submit]:focus,
+input[type=submit]:hover {
+  background-color: #de9523;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f6a62a));
+  background-image: -moz-linear-gradient(#f6a62a);
+  background-image: -ms-linear-gradient(#f6a62a);
+  background-image: -o-linear-gradient(#f6a62a);
+  background-image: linear-gradient(#f6a62a);
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+
+input {
+  margin: 0.5em 0;
+}
+
+input[type=submit]:focus,
+input[type=submit]:hover {
+  background-color: #de9523;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f6a62a));
+  background-image: -moz-linear-gradient(#f6a62a);
+  background-image: -ms-linear-gradient(#f6a62a);
+  background-image: -o-linear-gradient(#f6a62a);
+  background-image: linear-gradient(#f6a62a);
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+
+.header {
+  margin-bottom: 0.25em;
+}
+
+.heroBanner {
+  clear: both;
+  background: #3d6298;
+}
+
+.submitEmail {
+  margin-left: 0.75em;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+@media screen and (min-width: 55em) {
+  .logo {
+    float: left;
+  }
+}
+
+@media screen and (min-width: 55em) {
+  nav {
+    float: right;
+  }
+}
+
+.navMenu {
+  display: block;
+  font-size: 1.25em;
+  margin: 0 auto;
+}
+
+.navMenu_item {
+  float: left;
+  list-style-type: none;
+  margin: 0.25em 0 0.25em 2em;
+  padding: 0.25em 0;
+}
+.navMenu_item a {
+  text-decoration: none;
+}
+@media screen and (min-width: 55em) {
+  .navMenu_item {
+    margin: 0.25em 0 0.25em 2em;
+  }
+}
+
+.navMenu_item_button {
+  text-align: center;
+  list-style-type: none;
+}
+@media screen and (min-width: 55em) {
+  .navMenu_item_button {
+    float: left;
+  }
+}
+
+.laptopIllustration {
+  display: block;
+  margin: 2.5em auto;
+}
+@media screen and (min-width: 55em) {
+  .laptopIllustration {
+    margin: 0.5em auto;
+  }
+}
+
+img.laptopIllustration {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+}
+
+.footer {
+  clear: both;
+}
+
+.footer_content {
+  text-align: center;
+  margin-bottom: 2.75em;
+}
+
+.shareWidgets {
+  display: block;
+  text-align: center;
+}
+
+.socialMediaIcon_twitter {
+  background-color: #00aced;
+  background-image: url(../images/twitter-64.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin: 0.75em 1.25em;
+  height: 64px;
+  width: 64px;
+  background-size: 64px 64px;
+}
+
+.socialMediaIcon_facebook {
+  background-color: #3B5998;
+  background-image: url(../images/facebook-64.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin: 0.75em 1.25em;
+  height: 64px;
+  width: 64px;
+  background-size: 64px 64px;
+}
+
+.socialMediaIcon_googleplus {
+  background-color: #D14836;
+  background-image: url(../images/googleplus-64.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin: 0.75em 1.25em;
+  height: 64px;
+  width: 64px;
+  background-size: 64px 64px;
+}
+
+.shortInput {
+  padding: 0.15em;
+  width: 70%;
+  min-width: 15em;
+  border: 1px solid #232323;
+}
+
+.longInput {
+  margin: 0.5em 0;
+  padding: 0.15em;
+  width: 100%;
+  min-height: 7em;
+  min-width: 17em;
+  border: 1px solid #232323;
+}
+
+.signupForm .shortInput {
+  width: 90%;
+}
+
+.contactForm {
+  margin-top: 2em;
+}
+
+.centeredDescription {
+  text-align: center;
+}
+
+.placeholderPic {
+  width: 120px;
+  height: 120px;
+  margin: 1em 1em 1em 0;
+  background: #ccc9c4;
+}
+
+/*-----------------------------
+Dashboard / App styles 
+------------------------------*/
+/*-----------------------------
+Dashboard 
+------------------------------*/
+.dashboardContainer {
+  max-width: 85em;
+  width: 96%;
+  position: relative;
+  margin: 0 auto 2.75em;
+  padding: 0.75em 0 2.5em 0;
+  background-color: #ffffff;
+  border-right: 1px solid #ccc9c4;
+  border-bottom: 1px solid #ccc9c4;
+  border-left: 1px solid #ccc9c4;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.dashboardContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.dashboardContainer .mainContent {
+  margin-top: 0.5em;
+}
+
+.dashboardContainer nav {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+.dashboardContainer nav .navMenu {
+  width: 12em;
+  margin: 0 auto;
+}
+@media screen and (min-width: 55em) {
+  .dashboardContainer nav {
+    width: auto;
+    margin: 0;
+  }
+}
+@media screen and (min-width: 55em) {
+  .dashboardContainer nav ul {
+    float: left;
+  }
+}
+
+.userDashboardInfo {
+  width: 20%;
+  min-width: 12em;
+  margin: 0 auto;
+}
+.userDashboardInfo p {
+  margin: 0.15em 0 0.15em 0;
+}
+@media screen and (min-width: 55em) {
+  .userDashboardInfo {
+    width: auto;
+    float: left;
+  }
+}
+
+nav .userAvatar_medium {
+  margin: 0.35em 0.5em 0 0;
+  float: left;
+  background: #ccc9c4;
+  width: 45px;
+  height: 45px;
+}
+
+.cardColumn {
+  max-height: 40em;
+  overflow-y: scroll;
+  border-right: 1px solid #232323;
+  border-left: 1px solid #232323;
+  border-bottom: 1px solid #232323;
+}
+
+/* If you want a fade at the bottom of the column to help show that there are hidden cards that can be scrolled to */
+.columnHeader {
+  background: #3d6298;
+  border: 1px solid #232323;
+  color: #fff;
+  font-size: 1.05em;
+}
+
+.columnTitle {
+  margin: 0 0 0 0.35em;
+  display: inline-block;
+  padding: 0.37em 0;
+}
+
+.addNew {
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  background: #232323;
+  display: inline-block;
+  float: right;
+  padding: 0 0.45em;
+}
+
+.addNew:active,
+.addNew:hover {
+  background: #fff;
+  color: #232323;
+}
+
+.card {
+  background: #f8f5ec;
+  font-size: 0.8em;
+  padding: 0.55em 0.75em;
+  height: 6.25em;
+  border-bottom: 1px solid #ccc9c4;
+}
+.card a {
+  padding: 0 0.5em 0 0;
+}
+.card p {
+  margin-bottom: 0;
+}
+
+.card:active,
+.card:hover {
+  background: #f0ebe2;
+  cursor: pointer;
+}
+
+.card .userAvatar_medium {
+  margin-right: 1em;
+  float: left;
+  background: #ccc9c4;
+  width: 45px;
+  height: 45px;
+}
+
+.cardContent {
+  float: left;
+}
+
+.cardTitle {
+  font-size: 1.25em;
+  margin: -0.15em 0 0.15em 0;
+}
+
+.facepile {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.15em;
+}
+
+.facepile .userAvatar_small {
+  margin-right: 0.5em;
+  float: left;
+  background: #ccc9c4;
+  width: 25px;
+  height: 25px;
+}
+
+/*-----------------------------
+Modals
+------------------------------*/
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #3d6298;
+  opacity: 0.5;
+}
+
+.modal {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  background: #fff;
+  border: 7px solid #f8f5ec;
+  padding: 1em 1em 0;
+  margin: 2em auto;
+  width: 94%;
+  max-width: 32em;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  -webkit-box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.5);
+}
+.modal .userAvatar_medium {
+  display: inline-block;
+  float: right;
+  background: #ccc9c4;
+  width: 50px;
+  height: 50px;
+}
+@media screen and (max-width: 30.6875em) {
+  .modal {
+    margin: 1em auto;
+    padding: 0.5em 0.5em 0;
+    border: 2px solid #f8f5ec;
+  }
+}
+
+.modal_title {
+  margin: 0.2em 0 0 0;
+  display: inline-block;
+}
+
+#modal_tabRow {
+  margin-top: 2em;
+  background: #fff;
+  overflow: hidden;
+}
+
+.modal_tab {
+  text-align: center;
+  border: 2px solid #cdcac2;
+  border-bottom: none;
+  display: block;
+  float: left;
+  min-width: 6.25em;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.modal_tab a {
+  text-decoration: none;
+  color: #232323;
+}
+@media screen and (max-width: 30.6875em) {
+  .modal_tab {
+    border-bottom: 2px solid #cdcac2;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    margin: 0.25em;
+    display: inline-block;
+  }
+}
+
+.tabs_4 {
+  width: 24.01%;
+  margin-right: 1.32%;
+}
+
+.tabs_3 {
+  width: 32.45333%;
+  margin-right: 1.32%;
+}
+
+.tabs_2 {
+  width: 49.226677%;
+  margin-right: 1.32%;
+}
+
+.tabs_1 {
+  width: 100%;
+  margin-right: 0;
+}
+
+.tabs_1 a {
+  pointer-events: none;
+  cursor: default;
+}
+
+.modal_tab:last-child {
+  margin-right: 0;
+}
+
+.modal_tab:active,
+.modal_tab:hover {
+  color: #232323;
+}
+
+.selected {
+  position: relative;
+  z-index: 2;
+  display: block;
+  padding-bottom: 2px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  color: #232323;
+  background: #f0ebe2;
+}
+@media screen and (max-width: 30.6875em) {
+  .selected {
+    padding-bottom: 0;
+  }
+}
+
+.modal_tabContainer {
+  position: relative;
+  z-index: 1;
+  clear: both;
+  border: 2px solid #cdcac2;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  margin-top: -2px;
+  margin-bottom: 0.25em;
+}
+@media screen and (max-width: 30.6875em) {
+  .modal_tabContainer {
+    margin-top: 0.35em;
+  }
+}
+
+.modal_tabContent {
+  height: 17em;
+  overflow-y: scroll;
+}
+
+.close_modal, .create_modal {
+  font-size: 1.15em;
+  display: block;
+  text-align: center;
+  margin: 0.5em 0 0.65em;
+  text-decoration: none;
+  background: #f0ebe2;
+  border-radius: 4px;
+  color: black;
+  letter-spacing: 1px;
+}
+
+.close_modal:active,
+.close_modal:hover,
+.create_modal:active,
+.create_modal:hover {
+  background: #f6a62a;
+  color: #fff;
+}
+
+.hide {
+  display: none;
+}
+
+/*-----------------------------
+Discussion Tab Content 
+------------------------------*/
+.tabContent_row, .tabContent_row_input {
+  width: 100%;
+  float: left;
+  padding: 1em;
+  overflow: hidden;
+}
+.tabContent_row p, .tabContent_row_input p {
+  margin-bottom: 0;
+}
+
+.tabContent_row:nth-child(2n+2) {
+  background: #f8f5ec;
+}
+
+.tabContent_row:active,
+.tabContent_row:hover {
+  background: #f0ebe2;
+}
+
+.avatarCol {
+  width: 25%;
+}
+
+.modal_tabContainer .userAvatar_medium {
+  float: left;
+  margin: 0 0.5em 0 0;
+  display: inline-block;
+}
+@media screen and (max-width: 32em) {
+  .modal_tabContainer .userAvatar_medium {
+    display: none;
+  }
+}
+
+.discussionInput {
+  width: 84%;
+  float: left;
+  resize: none;
+  padding: 0.25em;
+}
+@media screen and (max-width: 32em) {
+  .discussionInput {
+    width: 100%;
+  }
+}
+
+.discussionItem_comment {
+  float: left;
+  width: 85%;
+  margin-top: -0.35em;
+}
+@media screen and (max-width: 32em) {
+  .discussionItem_comment {
+    width: 100%;
+  }
+}
+
+/*-----------------------------
+Agenda Items Tab Content 
+------------------------------*/
+.row_leftContent {
+  float: left;
+  margin-right: 1em;
+}
+@media screen and (max-width: 30.6875em) {
+  .row_leftContent {
+    float: none;
+    margin-bottom: 0.75em;
+  }
+}
+
+.tabContent_button {
+  margin-right: 0;
+  float: right;
+}
+@media screen and (max-width: 30.6875em) {
+  .tabContent_button {
+    float: left;
+    width: 10em;
+  }
+}
+
+/*-----------------------------
+Action Items Tab Content 
+------------------------------*/
+/*-----------------------------
+Meetings Tab Content 
+------------------------------*/
+/*-----------------------------
+Agenda items and meetings modal  
+------------------------------*/
+.modal .facepile {
+  max-width: 12em;
+  height: 2em;
+  margin: 0.6em 0 0 0;
+  float: right;
+  display: inline;
+  white-space: nowrap;
+  overflow-y: scroll;
+}
+.modal .facepile img {
+  float: none;
+}
+@media screen and (max-width: 24em) {
+  .modal .facepile {
+    display: none;
+  }
+}
+
+.modal .facepile::-webkit-scrollbar {
+  display: none;
+}
+
+.modal .facepile img:last-child {
+  margin-right: 0;
+}
+
+.modal_info {
+  margin: 0 0 -1.35em 0;
+}
+
+.modal_description {
+  padding: 1em;
+}
+
+.usersTab_username {
+  font-size: 1.15em;
+  margin: 0.45em;
+  float: left;
+}
+
+.discussionTab_username {
+  font-size: 1.15em;
+  margin-bottom: 0.45em;
+  color: #3d6298;
+}
+
+/*-----------------------------
+Create new modal  
+------------------------------*/
+.createTabContent_row {
+  width: 100%;
+  float: left;
+  padding: 1em;
+  overflow: hidden;
+}
+.createTabContent_row p {
+  margin-bottom: 0;
+}
+
+.agendaItemButton, .addFollowerButton {
+  margin: 0.25em 0.10em;
+}
+
+.modal_createNew .close_modal, .create_modal {
+  width: 49.5%;
+  float: left;
+}
+
+.create_modal {
+  float: right;
+}
+
+.createModalForm label {
+  font-size: 1.2em;
+}
+
+.createModalForm input[type=text],
+.createModalForm input[type=date],
+.createModalForm input[type=datetime-local],
+.createModalForm select,
+.createModalForm textarea {
+  padding: 0.15em;
+  margin: 0.5em 1em 1em 0;
+  padding: 0.5em;
+  width: 100%;
+  min-width: 15em;
+  border: 2px solid #cdcac2;
+}
+
+.createModalForm textarea {
+  height: 7em;
+}
+
+.createModalForm select {
+  background: #f0ebe2;
+  border: 1px solid #cdcac2;
+}
+
+.createModalForm input[type=submit] {
+  float: right;
+}

@@ -1,8 +1,5 @@
 'use strict';
 
-// var User               = require('../models/User');
-// var UserView           = require('../views/UserView');
-
 var Backbone           = require('backbone');
 var $                  = require('jquery');
 var UserCollection     = require('../models/UserCollection');
@@ -13,7 +10,7 @@ module.exports = Backbone.Router.extend({
            'users': 'index'},
 
   show: function(id) {
-
+    console.log(id);
   },
 
   start: function() {

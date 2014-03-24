@@ -19,7 +19,7 @@ app.configure('development', function(){
 
 var users = require('./api/routes/userRoutes');
 
-app.get('/api/v1/users/', users.collection);
+app.get('/api/v1/users', users.collection);
 
 app.post('/api/v1/users', users.createUser);
 

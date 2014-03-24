@@ -1,41 +1,36 @@
 'use strict';
+
+process.env.PHANTOMJS_EXECUTABLE = process.env.PHANTOMJS_EXECUTABLE || '/usr/local/Cellar/nvm/0.2.0/v0.10.26/bin/phantomjs';
+
 module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-simple-mocha');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-express-server');
+  grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-casper');
   grunt.loadNpmTasks('grunt-sass');
-  grunt.loadNpmTasks('grunt-browserify');
-  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-mongoimport');
+  grunt.loadNpmTasks('grunt-notify');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    simplemocha:{
-      dev:{
-        src:['test/*_test.js'],
-        options:{
-          reporter: 'spec',
-          slow: 200,
-          timeout: 1000
-        }
-      }
-    },
     clean: {
       build: ['build'],
       dev: {
-        src: ['build/server.js', 'build/<%= pkg.name %>.css', 'build/<%= pkg.name %>.js']
+        src: ['build/**/*']
       },
       prod: ['dist']
     },
+
     copy: {
-      all: {
+      prod: {
         expand: true,
-        cwd: 'assets',
+        cwd: 'app/assets',
         src: ['css/*.css', '*.html', 'images/**/*' ],
         dest: 'dist/',
         flatten: false,
@@ -43,58 +38,51 @@ module.exports = function(grunt) {
       },
       dev: {
         expand: true,
-        cwd: 'assets',
+        cwd: 'app/assets',
         src: ['css/*.css', '*.html', 'images/**/*' ],
         dest: 'build/',
         flatten: false,
         filter: 'isFile'
       }
     },
-    watch: {
-      all:{
-        files:['server.js', 'models/*.js'],
-        tasks:['jshint', 'test']
-      },
-      express: {
-        files: ['server.js', 'api/**/*', 'assets/**/*'],
-        tasks: ['clean', 'copy', 'sass:dev', 'browserify:dev', 'express:dev'],
-        options: {
-          // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions.
-          // Without this option specified express won't be reloaded
-          spawn: false
-        }
-      }
-    },
-    sass: {
-      dist: {
-        files: [{'styles.css': 'styles.scss'}]
-      },
-      dev: {
-        options: {
-          includePaths: ['assets/scss/'],
-          sourceComments: 'map'
-        },
-        files: [{'build/css/styles.css': 'assets/scss/styles.scss'}]
-      }
-    },
+
     browserify: {
       prod: {
-        src: ['assets/js/*.js'],
+        src: ['app/assets/js/*.js'],
         dest: 'dist/browser.js',
         options: {
-          transform: ['debowerify'],
+          transform: ['debowerify','hbsfy'],
           debug: false
         }
       },
       dev: {
-        src: ['assets/js/*.js'],
+        src: ['app/assets/js/*.js'],
         dest: 'build/browser.js',
         options: {
-          transform: ['debowerify'],
+          transform: ['debowerify','hbsfy'],
           debug: true
         }
       }
     },
+
+    notify: {
+      server: {
+        options: {
+          message: 'Server is ready'
+        }
+      },
+      express: {
+        options: {
+          message: 'express is ready'
+        }
+      },
+      watch: {
+        options: {
+          message: 'watch'
+        }
+      }
+    },
+
     express: {
       options: {
         // Override defaults here
@@ -116,63 +104,96 @@ module.exports = function(grunt) {
         }
       }
     },
-    casper: {
-      acceptance: {
+    simplemocha: {
+      dev:{
+        src:['test/*_test.js','!test/acceptance/*_test.js'],
+        options:{
+          reporter: 'spec',
+          slow: 200,
+          timeout: 1000
+        }
+      }
+    },
+    watch: {
+      all: {
+        files:['server.js', './**/*.js' ],
+        tasks:['jshint']
+      },
+      express: {
+        files:  [ 'server.js','api/**/*','app/assets/**/*' ],
+        tasks:  [ 'clean', 'copy', 'sass:dev', 'browserify:dev', 'express:dev' ],
         options: {
-          test: true
+          // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions.
+          // Without this option specified express won't be reloaded
+          spawn: false
+        }
+      }
+    },
+    casper: {
+      acceptance : {
+        options : {
+          test : true,
+          //'log-level': 'debug'
         },
-        files: {
+        files : {
           'test/acceptance/casper-results.xml' : ['test/acceptance/*_test.js']
         }
       }
     },
     jshint: {
-      all: ['Gruntfile.js', 'server.js', 'models/**/*.js', 'test/**/*.js'],
+      all: ['Gruntfile.js', 'server.js', 'api/**/*.js', 'app/assets**/*.js'],
       options: {
-        jshintrc: true,
-        globals: {
-          console: true,
-          module: true
-        }
+        jshintrc: true
+      }
+    },
+    sass: {
+      dist: {
+        files: {'build/css/styles.css': 'app/assets/scss/styles.scss'}
+      },
+      dev: {
+        options: {
+          includePaths: ['app/assets/scss/'],
+          sourceComments: 'map'
+        },
+        files: {'build/css/styles.css': 'app/assets/scss/styles.scss'}
       }
     },
     mongoimport: {
       options: {
-        db: 'oaa-development',
+        db : 'oaa',
         //optional
         //host : 'localhost',
         //port: '27017',
         //username : 'username',
         //password : 'password',
         //stopOnError : false,
-        collections: [
+        collections : [
           {
-            name: 'users',
-            type: 'json',
-            file: 'db/seeds/users.json',
-            jsonArray: true, //optional
-            upsert: true, //optional
-            drop: true //optional
-
+            name : 'users',
+            type : 'json',
+            file : 'db/seeds/users.json',
+            jsonArray : true,  //optional
+            upsert : true,  //optional
+            drop : true  //optional
           },
           {
-            name: 'meetings',
-            type: 'json',
-            file: 'db/seeds/meetings.json',
-            jsonArray: true,
-            upsert: true,
-            drop: true
+            name : 'meetings',
+            type :'json',
+            file : 'db/seeds/meetings.json',
+            jsonArray : true,
+            upsert : true,
+            drop : true
           }
         ]
       }
     }
   });
 
-  grunt.registerTask('build:dev', ['clean:dev', 'browserify:dev', 'sass:dev', 'jshint:all', 'copy:dev']);
+  grunt.registerTask('build:dev',  ['clean:dev', 'sass:dev', 'browserify:dev', 'jshint:all', 'copy:dev']);
   grunt.registerTask('build:prod', ['clean:prod', 'browserify:prod', 'jshint:all', 'copy:prod']);
-  grunt.registerTask('test', 'simplemocha:dev');
-  grunt.registerTask('server', ['jshint', 'build:dev', 'express:dev', 'watch:express']);
-  grunt.registerTask('test:acceptance', ['express:dev', 'casper']);
-  grunt.registerTask('default', ['jshint', 'test', 'watch:express']);
-  // grunt.registerTask('defaut', ['sass']);
+  grunt.registerTask('test', ['jshint', 'simplemocha:dev']);
+  grunt.registerTask('server', [ 'build:dev', 'express:dev', 'watch:express','notify' ]);
+  grunt.registerTask('test:acceptance',['build:dev', 'express:dev', 'casper']);
+  grunt.registerTask('default', ['jshint', 'test','watch:express']);
+
 };

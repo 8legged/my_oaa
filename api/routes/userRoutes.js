@@ -1,19 +1,12 @@
 'use strict';
-// jshint unused:false
-
 var User = require('../models/User');
 
 exports.collection = function(req, res) {
-  res.setHeader('Content-Type', 'application/json');
-  User.find({}, function(err, users) {
-    if(err) {
-      res.writeHead(500);
-      res.send({'error': err});
-    } else {
-      res.send(users);
-    }
-  });
-};
+    res.setHeader('Content-Type', 'application/json');
+    User.find({}, function(err, users) {
+      res.send(JSON.stringify(users));
+    });
+  };
 
 exports.createUser = function(req, res) {
   res.setHeader('Content-Type', 'application/json');
@@ -43,9 +36,9 @@ exports.findById = function(req, res) {
 exports.updateUser = function(req, res) {
   res.setHeader('Content-Type', 'application/json');
   var id = req.params.id;
-  var user = req.body;
 // Delete id from Backbone's request before sending to Mongoose
   delete req.body._id;
+  var user = req.body;
   User.update({'_id': String(id)}, user, function(err) {
     if(err) {
       res.send({'error': err});
