@@ -28,7 +28,9 @@
     "handlebars": "^1.3.0",
     "hbsfy": "^1.3.2",
     "esprima": "^1.0.4",
-    "grunt-env": "^0.4.1"
+    "grunt-env": "^0.4.1",
+    "mocha-term-cov-reporter": "^0.2.0",
+    "grunt-mocha-cov": "^0.2.1"
   },
   "scripts": {
     "test": "mkdir -p build && grunt test --trace --verbose"
