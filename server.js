@@ -17,6 +17,10 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+app.configure('test', function(){
+  app.use(express.errorHandler());
+});
+
 var users = require('./api/routes/userRoutes');
 
 app.get('/api/v1/users', users.collection);

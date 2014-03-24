@@ -19,6 +19,17 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    env: {
+      options {
+      },
+      dev: {
+        NODE_ENV: 'development'
+      },
+      test: {
+        NODE_ENV: 'test'
+      }
+    },
+
     clean: {
       build: ['build'],
       dev: {
@@ -191,7 +202,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build:dev',  ['clean:dev', 'sass:dev', 'browserify:dev', 'jshint:all', 'copy:dev']);
   grunt.registerTask('build:prod', ['clean:prod', 'browserify:prod', 'jshint:all', 'copy:prod']);
-  grunt.registerTask('test', ['jshint', 'simplemocha:dev']);
+  grunt.registerTask('test', ['env:test', 'jshint', 'simplemocha:dev']);
   grunt.registerTask('server', [ 'build:dev', 'express:dev', 'watch:express','notify' ]);
   grunt.registerTask('test:acceptance',['build:dev', 'express:dev', 'casper']);
   grunt.registerTask('default', ['jshint', 'test','watch:express']);
