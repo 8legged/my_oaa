@@ -1,0 +1,37 @@
+{
+  "/users/jn/projects/empty_oaa/api/models/user.js": {
+    "loc": 8,
+    "cyclomatic": 1,
+    "halstead": 5
+  },
+  "/users/jn/projects/empty_oaa/app/assets/js/models/user.js": {
+    "loc": 9,
+    "cyclomatic": 1,
+    "halstead": 4
+  },
+  "/users/jn/projects/empty_oaa/app/assets/js/models/usercollection.js": {
+    "loc": 6,
+    "cyclomatic": 1,
+    "halstead": 4
+  },
+  "/users/jn/projects/empty_oaa/app/assets/js/routers/userrouter.js": {
+    "loc": 21,
+    "cyclomatic": 1,
+    "halstead": 7
+  },
+  "/users/jn/projects/empty_oaa/app/assets/js/views/usercollectionview.js": {
+    "loc": 17,
+    "cyclomatic": 1,
+    "halstead": 7
+  },
+  "/users/jn/projects/empty_oaa/app/assets/js/views/userview.js": {
+    "loc": 14,
+    "cyclomatic": 1,
+    "halstead": 6
+  },
+  "/users/jn/projects/empty_oaa/api/routes/userroutes.js": {
+    "loc": 50,
+    "cyclomatic": 5,
+    "halstead": 21
+  }
+}

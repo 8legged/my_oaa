@@ -1,0 +1,18 @@
++------------------------------------------------------------------------+-----+------------+---------------------+
+| File                                                                   | LOC | Cyclomatic | Halstead difficulty |
++------------------------------------------------------------------------+-----+------------+---------------------+
+| /users/jn/projects/empty_oaa/api/models/user.js                        | 8   | 1          | 5                   |
+| /users/jn/projects/empty_oaa/app/assets/js/models/user.js              | 9   | 1          | 4                   |
+| /users/jn/projects/empty_oaa/app/assets/js/models/usercollection.js    | 6   | 1          | 4                   |
+| /users/jn/projects/empty_oaa/app/assets/js/routers/userrouter.js       | 21  | 1          | 7                   |
+| /users/jn/projects/empty_oaa/app/assets/js/views/usercollectionview.js | 17  | 1          | 7                   |
+| /users/jn/projects/empty_oaa/app/assets/js/views/userview.js           | 14  | 1          | 6                   |
+| /users/jn/projects/empty_oaa/api/routes/userroutes.js                  | 50  | 5          | 21                  |
++------------------------------------------------------------------------+-----+------------+---------------------+
+LOC - lines of code (logical, lower is better)
+Cyclomatic - McCabe complexity (lower is better)
+	http://en.wikipedia.org/wiki/Cyclomatic_complexity
+Halstead difficulty (lower is better)
+	http://en.wikipedia.org/wiki/Halstead_complexity_measures
+maintainability (higher is better)
+	http://jscomplexity.org/complexity

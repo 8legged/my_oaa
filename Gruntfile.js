@@ -16,12 +16,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-mongoimport');
   grunt.loadNpmTasks('grunt-notify');
+  grunt.loadNpmTasks('grunt-complexity');
+  grunt.loadNpmTasks('grunt-env');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
     env: {
-      options {
+      options: {
       },
       dev: {
         NODE_ENV: 'development'
@@ -55,6 +57,21 @@ module.exports = function(grunt) {
         dest: 'build/',
         flatten: false,
         filter: 'isFile'
+      }
+    },
+
+    complexity: {
+      generic: {
+        src: ['grunt.js', 'tasks/grunt-complexity.js'],
+        options: {
+          breakOnErrors: true,
+          jsLintXML: 'report.xml',         // create XML JSLint-like report
+          checkstyleXML: 'checkstyle.xml', // create checkstyle report
+          errorsOnly: false,               // show only maintainability errors
+          cyclomatic: [3, 7, 12],          // or optionally a single value, like 3
+          halstead: [8, 13, 20],           // or optionally a single value, like 8
+          maintainability: 100
+        }
       }
     },
 
@@ -101,7 +118,8 @@ module.exports = function(grunt) {
       },
       dev: {
         options: {
-          script: 'server.js'
+          script: 'server.js',
+          node_env: 'development'
         }
       },
       prod: {
@@ -206,7 +224,7 @@ module.exports = function(grunt) {
     },
     mongoimport: {
       options: {
-        db : 'oaa',
+        db : 'oaa-test',
         //optional
         //host : 'localhost',
         //port: '27017',
@@ -237,9 +255,11 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build:dev',  ['clean:dev', 'sass:dev', 'browserify:dev', 'jshint:all', 'copy:dev']);
   grunt.registerTask('build:prod', ['clean:prod', 'browserify:prod', 'jshint:all', 'copy:prod']);
-  grunt.registerTask('test', ['env:test', 'jshint', 'simplemocha:dev']);
-  grunt.registerTask('server', [ 'build:dev', 'express:dev', 'watch:express','notify' ]);
+  grunt.registerTask('test', ['env:test', 'jshint', 'mochacov:unit', 'mochacov:coverage']);
+  grunt.registerTask('test:prepare', ['mongo_drop', 'mongoimport']);
+  grunt.registerTask('travis', ['jshint', 'mochacov:unit', 'mochacov:coverage', 'mochacov:coveralls']);
+  grunt.registerTask('server', ['env:dev', 'build:dev', 'express:dev', 'watch:express','notify' ]);
   grunt.registerTask('test:acceptance',['build:dev', 'express:dev', 'casper']);
-  grunt.registerTask('default', ['jshint', 'test','watch:express']);
+  grunt.registerTask('default', 'complexity', ['jshint', 'test','watch:express']);
 
 };

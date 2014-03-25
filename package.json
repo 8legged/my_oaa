@@ -5,7 +5,8 @@
   "dependencies": {
     "express": "*",
     "mongodb": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "grunt-complexity": "^0.1.4"
   },
   "devDependencies": {
     "grunt-simple-mocha": "^0.4.0",
@@ -34,5 +35,16 @@
   },
   "scripts": {
     "test": "mkdir -p build && grunt test --trace --verbose"
+  },
+  "config": {
+    "blanket": {
+      "pattern": [
+      "api"
+      ],
+      "data-cover-never": [
+      "node_modules",
+      "test"
+      ]
+    }
   }
 }
